@@ -1,6 +1,8 @@
-# Elastic IP Setup Guide
-
-## Overview
+# Elastic IP Setup Gui3. Click **Create inline policy**
+4. Choose **JSON** tab
+5. Copy the content from `elastic-ip-policy.json` in this repository
+6. Name it: **elastic-ip-policy**
+7. Click **Create policy**# Overview
 
 This guide walks you through setting up an **Elastic IP** for your ECS Fargate application. An Elastic IP is a static public IP address that remains the same even when you redeploy your application.
 

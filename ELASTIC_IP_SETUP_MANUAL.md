@@ -1,6 +1,9 @@
 # ⚙️ Elastic IP Setup - Manual Steps
 
-Your scripts are ready! Follow these steps to get your static IP:
+Your scr6. Name it: **elastic-ip-policy**
+7. Click **Create policy**
+
+### Option B: Using AWS CLI (If you have admin account) are ready! Follow these steps to get your static IP:
 
 ## Step 1: Add IAM Permissions to github-deploy-user
 

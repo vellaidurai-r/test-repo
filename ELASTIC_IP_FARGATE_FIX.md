@@ -10,7 +10,7 @@ Since this is a dev/test account, we'll use a broader EC2 policy. For production
 
 ### Update Your IAM Policy
 
-Go to AWS Console → IAM → Users → github-deploy-user → ElasticIPManagement
+Go to AWS Console → IAM → Users → github-deploy-user → elastic-ip-policy
 
 Replace the policy with:
 

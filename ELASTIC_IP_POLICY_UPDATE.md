@@ -7,7 +7,7 @@ Your Elastic IP script needs one more permission: **ec2:CreateTags**
 1. Go to: **https://console.aws.amazon.com/iam/home#/users**
 2. Click **github-deploy-user**
 3. Scroll to **Permissions policies**
-4. Find **ElasticIPManagement** policy
+4. Find **elastic-ip-policy** policy
 5. Click it to expand, then click **Edit**
 6. Click **JSON** tab
 7. Replace with this updated version:
