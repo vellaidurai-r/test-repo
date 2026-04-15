@@ -9,7 +9,8 @@
         "ec2:AssociateAddress",
         "ec2:DisassociateAddress",
         "ec2:DescribeAddresses",
-        "ec2:ReleaseAddress"
+        "ec2:ReleaseAddress",
+        "ec2:CreateTags"
       ],
       "Resource": "*"
     },
