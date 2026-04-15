@@ -17,14 +17,21 @@ echo ""
 echo "📍 Allocating Elastic IP address..."
 ALLOCATION_RESPONSE=$(aws ec2 allocate-address \
   --domain vpc \
-  --region $REGION \
-  --tag-specifications 'ResourceType=elastic-ip,Tags=[{Key=Name,Value=node-app-eip},{Key=Service,Value=node-app-service}]')
+  --region $REGION)
 
 ALLOCATION_ID=$(echo $ALLOCATION_RESPONSE | jq -r '.AllocationId')
 PUBLIC_IP=$(echo $ALLOCATION_RESPONSE | jq -r '.PublicIp')
 
 echo "✅ Elastic IP allocated: $PUBLIC_IP"
 echo "   Allocation ID: $ALLOCATION_ID"
+echo ""
+
+# Tag the Elastic IP (optional - for easy identification in AWS Console)
+echo "🏷️  Tagging Elastic IP..."
+aws ec2 create-tags \
+  --resources $ALLOCATION_ID \
+  --tags Key=Name,Value=node-app-eip Key=Service,Value=node-app-service \
+  --region $REGION 2>/dev/null || echo "   (Tagging skipped or already tagged)"
 echo ""
 
 # Step 2: Get current task's network interface
