@@ -1,0 +1,42 @@
+{
+  "family": "node-app-task-<ENVIRONMENT>",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::497162053399:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "node-backend",
+      "image": "<IMAGE_URI>",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "memory": 256,
+      "cpu": 128,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/node-app-task-<ENVIRONMENT>",
+          "awslogs-region": "ap-southeast-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "environment": [
+        {
+          "name": "ENVIRONMENT",
+          "value": "<ENVIRONMENT>"
+        },
+        {
+          "name": "NODE_ENV",
+          "value": "<ENVIRONMENT>"
+        }
+      ]
+    }
+  ]
+}
