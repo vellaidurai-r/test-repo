@@ -25,7 +25,8 @@ Your Elastic IP script needs one more permission: **ec2:CreateTags**
         "ec2:DisassociateAddress",
         "ec2:DescribeAddresses",
         "ec2:ReleaseAddress",
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "ec2:ModifyNetworkInterfaceAttribute"
       ],
       "Resource": "*"
     },
