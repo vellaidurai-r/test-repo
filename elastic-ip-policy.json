@@ -1,0 +1,26 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ElasticIPManagement",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AllocateAddress",
+        "ec2:AssociateAddress",
+        "ec2:DisassociateAddress",
+        "ec2:DescribeAddresses",
+        "ec2:ReleaseAddress"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "NetworkInterfaceAccess",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeNetworkInterfaceAttribute"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
