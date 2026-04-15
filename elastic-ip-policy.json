@@ -11,7 +11,7 @@
         "ec2:DescribeAddresses",
         "ec2:ReleaseAddress",
         "ec2:CreateTags",
-        "ec2:ModifyNetworkInterfaceAttribute"
+        "ec2:DescribeTags"
       ],
       "Resource": "*"
     },
@@ -20,7 +20,9 @@
       "Effect": "Allow",
       "Action": [
         "ec2:DescribeNetworkInterfaces",
-        "ec2:DescribeNetworkInterfaceAttribute"
+        "ec2:DescribeNetworkInterfaceAttribute",
+        "ec2:ModifyNetworkInterfaceAttribute",
+        "ec2:AssignPrivateIpAddresses"
       ],
       "Resource": "*"
     }
