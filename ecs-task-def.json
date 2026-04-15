@@ -1,0 +1,24 @@
+{
+  "family": "node-app-task",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "node-backend",
+      "image": "497162053399.dkr.ecr.ap-southeast-2.amazonaws.com/backend-api:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "memory": 256,
+      "cpu": 128
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::497162053399:role/ecsTaskExecutionRole"
+}
