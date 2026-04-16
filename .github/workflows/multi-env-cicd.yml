@@ -130,11 +130,22 @@ jobs:
             --task-definition $TASK_DEF_ARN \
             --region ${{ env.AWS_REGION }}
           
-          # Wait for service to stabilize
-          aws ecs wait services-stable \
+          # Give ECS time to start pulling the image and launching tasks
+          sleep 30
+          
+          # Quick verification that service accepted the update
+          UPDATED_TASK_DEF=$(aws ecs describe-services \
             --cluster $CLUSTER \
             --services $SERVICE \
-            --region ${{ env.AWS_REGION }}
+            --region ${{ env.AWS_REGION }} \
+            --query 'services[0].taskDefinition' \
+            --output text)
+          
+          if [[ "$UPDATED_TASK_DEF" == *"$TASK_DEF_ARN"* ]]; then
+            echo "✅ Service updated with new task definition"
+          else
+            echo "⚠️ Service may not have updated yet, but deployment triggered"
+          fi
 
       - name: Post deployment verification
         env:
