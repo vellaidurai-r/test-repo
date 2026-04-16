@@ -70,7 +70,6 @@ jobs:
   deploy:
     needs: [determine-environment, build-and-test]
     runs-on: ubuntu-latest
-    environment: ${{ needs.determine-environment.outputs.environment }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
