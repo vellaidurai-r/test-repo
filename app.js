@@ -4,7 +4,7 @@ const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   const env = process.env.ENVIRONMENT || 'unknown';
-  res.send(`✅ CI/CD Pipeline Test - Environment: ${env} - Node.js on AWS ECS - THIS IS TEST COMMIT to check pipeline functionality 123`);
+  res.send(`✅ CI/CD Pipeline Test - Environment: ${env} - Node.js on AWS ECS - THIS IS TEST COMMIT to check pipeline functionality`);
 });
 
 app.listen(port, '0.0.0.0', () => {
